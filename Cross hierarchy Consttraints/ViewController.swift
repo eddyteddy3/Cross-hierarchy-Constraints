@@ -17,7 +17,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //we need to remove the existing center vertical constraint of label
+        viewB.removeConstraint(verticalConstraint)
+        
+        //now we need to add the constraint for label in order to center it respectively to the button center alignment.
+        let constraint = NSLayoutConstraint(item: label!, attribute: .centerX, relatedBy: .equal, toItem: button!, attribute: .centerX, multiplier: 1.0, constant: 0)
+        
+        self.view.addConstraint(constraint)
     }
 
 
